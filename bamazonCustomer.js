@@ -71,24 +71,33 @@ var userShop = function(res){
             if(err) throw err;
             if(res.length === 0){
                 console.log("That product does not exist. Please enter a Product Id from the list above.");
+                userShop();
         } else {
             console.log("")
             console.log(res[0].product_name + " purchased");
             console.log(quantity + " quantity at $" + res[0].price);
             console.log("");
-        }})
+        
 
-            var newQuantity = res[0].stock_quantity - quantity;
-
-            connnection.query("UPDATE products SET stock_quantity = " + newQuantity + "WHERE product_id = " + res[0].product_id,
+            var newQuantity = parseFloat(res[0].stock_quantity) - parseFloat(quantity);
+            var product = res[0].product_id;                
             
+            connection.query("UPDATE products SET ? WHERE ?",[{
+                stock_quantity:newQuantity
+            },
+            {
+                product_id:product    
+            }],    
             function(err,res){
                 if(err) throw err;
                 console.log("");
                 console.log("Your order is being processed. Thank you for shopping!");
                 console.log("");
                 connection.end();
-            })
-        })};
+            }
+            );
+        }
+    });
+})};
     
 
