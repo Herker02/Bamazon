@@ -7,7 +7,6 @@
 <p>As a customer, you would select the product you would like to purchase. Then you will have to choose how much you would like. Bamazon will then show you the items you chose and the quantity you would like to buy. Once successfully purchased, the Database in MySQL will update with the most current inventory</p>
 <hr>
 <p>Here is a video of how it works:</p>
-<hr>
 <a href="https://drive.google.com/file/d/1y9qFkTZe1CiqZ7QIvCuSiCToXbExNvYJ/view">Tutorial Video</a>
 
 <p>Thank you for checking out my Bamazon!</p>
